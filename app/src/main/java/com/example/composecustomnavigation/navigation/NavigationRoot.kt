@@ -30,12 +30,12 @@ fun NavigationRoot(
         startDestination = startDestination,
         modifier = Modifier.padding(paddingValues = innerPaddings)
     ) {
-        authGraph(navController = navController)
-        homeGraph(navController = navController)
+        authGraph()
+        homeGraph()
     }
 }
 
-fun NavGraphBuilder.authGraph(navController: NavHostController) {
+fun NavGraphBuilder.authGraph() {
     navigation<Destination.AuthGraph>(startDestination = Destination.LoginScreen) {
         composable<Destination.LoginScreen> {
             val viewModel = koinViewModel<LoginViewModel>()
@@ -44,7 +44,7 @@ fun NavGraphBuilder.authGraph(navController: NavHostController) {
     }
 }
 
-fun NavGraphBuilder.homeGraph(navController: NavHostController) {
+fun NavGraphBuilder.homeGraph() {
     navigation<Destination.HomeGraph>(startDestination = Destination.HomeScreen) {
         composable<Destination.HomeScreen> {
             val viewModel = koinViewModel<HomeViewModel>()
